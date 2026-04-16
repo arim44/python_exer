@@ -91,3 +91,63 @@ print(list1 + list2)
 print(list2+list1)
 print(list1 *3)
 print(list2 *2)
+
+#len함수를 사용해서 리스트의 길이 조회
+length = len(scores)
+print('score의 길이는 {}입니다.'.format(length))
+
+bts = ["진", "슈가", "제이홉", "RM", "지민", "뷔", "정국"]
+print('bts의 멤버는 {}명 입니다.'.format(len(bts)))
+
+# 리스트 분할
+numbers = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 10]
+numbers1 = numbers[0:4] #4번쨰 값까지 0,10,20,30
+print(numbers1)
+
+print(numbers[:4])
+print(numbers[7:11])    # 인덱스 7번째부터 11번째 자리까지
+print(numbers[7:])      # 인덱스 7번째 부터 뒤 다~
+print(numbers[:])       # 전체
+
+#range()
+r1 = range(1,10,1)
+print(r1)
+r3 = range(10,1)
+print(r3)
+
+r4 = range(10,0,-1)
+print(r4)
+
+#range를 이용한 list 생성
+list1 = list(range(10))
+print(list1)
+
+list2 = list(range(1,10))   #1~9까지 1씩 증가하는 범위
+print(list2)
+
+list4 = list(range(10, 0, -1))  #10 ~ 1까지 1씩 감소하는 범위
+print(list4)
+
+#tuple
+student = ('전정국','인공지능학과',3,175.3, 3.5, True)
+print(student)
+print(student[0])
+
+#student[0] = '정국' #에러
+
+#range를 이용한 tuple 생성
+range1 = range(10)
+tuple1 = tuple(range1)
+print(tuple1)
+
+range2 = range(-5, 15,2)
+tuple2 = tuple(range2)
+print(tuple2)
+
+#Input()
+age = input('나이를 입력하시오')
+print(age)
+num = 3
+diff = input('변화량을 입력하시오')
+#print(num + diff)   #에러
+print(num + int(diff))
