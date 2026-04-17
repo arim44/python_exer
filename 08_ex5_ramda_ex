@@ -1,0 +1,110 @@
+#람다
+def add(x,y):
+    return x+y
+
+f = lambda x,y : x+y
+print(add(1, 2))
+print(f(1,2))
+
+f = lambda x: x if x%3 ==0 else 0
+print(f(3))
+print(f(4))
+
+# 맵 함수 사용 람다로
+nums = [1,2,3,4,5]
+
+#x 제곰하는 함수
+def pow(x):
+    return x **2
+f = lambda x: x**2
+
+print(list(map(pow, nums)))
+print(list(map(f, nums)))
+print(list(map(lambda x: x**2, nums)))
+
+nums1 = [1,2,3,4,5]
+nums2 = [6,7,8,9,10]
+# 매개변수를 하나씩 곱함
+print(list(map(lambda x,y: x*y, nums1, nums2)))
+
+#실습
+# map과 lambda를 이용해서 1~10 list의 각 아이템에 5배를
+# 가진 list를 만들고 출력하시오.
+
+list1 = list(range(1,11))
+
+print(list(map(lambda x: x**5, list1)))
+
+#필터
+ages = [18,19,39,12,43,13,21,25]
+
+#함수
+def adult_func(age):
+    if age >= 19:
+        return True
+    else:
+        return False
+for age in filter(adult_func, ages):
+    print(age)
+print()
+#람다
+for age in filter(lambda age: age>=19, ages):
+    print(age)
+
+adult_ages = list(filter(lambda age: age>=19, ages))
+print(adult_ages)
+
+# 실습
+nums3 = list(range(1,11))
+
+result = list(map(lambda x: x**2,filter(lambda num:num%2 == 0, nums3)))
+print(result)
+   
+#reduce()
+from functools import reduce
+nums = [1,2,3,4]
+sum = reduce(lambda x,y: x+y, nums)
+print(sum)
+mul = reduce(lambda x,y: x*y, nums)
+print(mul)
+
+#실습
+from functools import reduce
+
+list2 = list(range(1,11))
+result = reduce(lambda x,y: x*y, filter(lambda num: num%2 ==0, list2))
+
+# filterresult = filter(lambda num: num%2 ==0, list2)
+# result = reduce(lambda x,y: x*y, list2)
+print(result)
+
+
+# 축약표현을 이용한 list
+list3 = list(range(1,10))
+list4 = list(map(lambda x: x**2, list3))
+print(list3)
+list5 = [x**2 for x in list3]
+print(5)
+list6 = [x**2 for x in range(1,10)]
+print(list6)
+
+list1 = list(range(1,10))
+# 조건문에 따라 5보다 큰 값만 필터링
+list5 = [x**2 for x in list1 if x>5 ]
+print(list5)
+# 조건문에 따라 짝수 값만 필터링
+list6 = [x**2 for x in range(1, 10) if x%2==0]
+print(list6)
+
+# 축약 실습
+list1 = [x**2 for x in range(1,11)]
+print(list1)
+
+list2 = [x for x in range(1,21) if x%2 ==0]
+print(list2)
+
+list3 = [x for x in range(1,21) if x%3 == 0]
+print(list3)
+
+list4 = [x**2 for x in range(1,21) if x%5 ==0]
+print(list4)
